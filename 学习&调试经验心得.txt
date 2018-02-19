@@ -1,4 +1,4 @@
-1. USmart函数的使用  usmart.c 三个函数 +一个串口接收函数
+﻿1. USmart函数的使用  usmart.c 三个函数 +一个串口接收函数
 
 串口接收函数需要配合原子家自己的接收协议（回车那个）
 
@@ -61,7 +61,14 @@ USART使用方式差不多，都是用异步模式进行收发。
 
 .gitignore 用于忽略你不想提交到Git上的文件
 
-.gitattribute 指定非文本文件的对比合并方式
+.gitattribute 指定非文本文件的对比合并方式 
+
+pull是从remote repo拉取local branch的最新代码下到local repo；
+
+fetch是从remote repo拉取other branches的最新代码下到local repo。
+
+
+
 
 
 
