@@ -100,6 +100,28 @@ AT指令固件包  NodeMCU固件包
 
 ESP8266 也可以用SPI进行通信开发（未完待续）：
 
+一共两个SPI：SPI和HSPI   其中SPI已经和内部FLASH连接 HSPI可以为我们所用（仅支持主机模式）
+图:
+
+
+
+8266如果要进行SPI与外部MCU进行通讯
+
+https://bbs.espressif.com/viewtopic.php?t=2426
+
+https://github.com/espressif/ESP8266_RTOS_SDK
+
+https://www.cnblogs.com/yangfengwu/p/7524297.html
+
+https://www.espressif.com/zh-hans/support/download/documents?keys=&field_type_tid%5B%5D=14
+
+https://bbs.espressif.com/viewtopic.php?f=67&t=225
+
+https://wenku.baidu.com/view/7160d1ff312b3169a551a452.html
+
+
+
+
 CPOL控制空闲时的电平状态，CPHA控制数据在CLK第几个沿开始传输。
 
 高位开始传输
