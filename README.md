@@ -311,13 +311,19 @@ R8-R12 高位寄存器 32位指令和部分16位指令
 MSP 是默认堆栈指针。由OS内核，异常服务和特权访问的程序代码使用
 PSP 常规程序代码使用 
 ![](http://ww1.sinaimg.cn/large/006Esg89gy1frry0uylk6j30fa02ydfu.jpg)
+
 R14是连接寄存器， 保存函数返回地址 
+
 R15是程序计数器 （PC） ，返回值是当前指令地址+4
+
 程序状态寄存器 PSRs或xPSP
+
 ![](http://ww1.sinaimg.cn/large/006Esg89gy1frryl1hd3fj30mb091t9i.jpg)
 中断屏蔽寄存器组
+
 ![](http://ww1.sinaimg.cn/large/006Esg89gy1frrylhppwfj30lv07cmy1.jpg)
 如何操作
+
 ![](http://ww1.sinaimg.cn/large/006Esg89gy1frryzw4pjij30mc0bj752.jpg)
 控制寄存器 ：定义特权级别和选择当前使用哪个堆栈指针。
 
@@ -333,6 +339,8 @@ R15是程序计数器 （PC） ，返回值是当前指令地址+4
 
 -  ### NB-Iot
  
+5.25收到NBIOT模组，模块是移远，型号BC-05 电信卡。
+
 -  ### 荔枝pi
 
 收到了一块5寸触摸屏（电阻） nano一块 
@@ -354,3 +362,4 @@ R15是程序计数器 （PC） ，返回值是当前指令地址+4
 烧写完毕...白屏。定视一下,操。。 屏幕的排线被我弄断了  GG  界面显示不起来了。 咸鱼的那个7寸屏也点不亮。 明天找其他解决方案，暂时不排除lichee pi 本身的原因。
 找到了原因了 Lichee本身是没有问题的。是我自己太菜。。。
    
+-  ### STM32向量表
