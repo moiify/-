@@ -198,6 +198,13 @@ RS485转换器SP3485。其中5脚和8脚是电源引脚；6脚和7脚就是RS485
 
 modbus 是一个应用层级的协议。 特点包括数据头的设备地址，功能码，n个数据位，CRC校验位。 另外主机发送请求后，从机会有对应的响应。
 
+freemodbus的移植与使用
+
+参考网址：
+
+https://www.amobbs.com/thread-5491615-1-1.html  Freemudbus移植 
+
+https://github.com/armink/FreeModbus_Slave-Master-RTT-STM32  主从机模式 都有
 
 
 
@@ -292,7 +299,8 @@ DC/DC 变换器、开关元件和整流器应尽可能靠近变压器放置，�
          }
 
  -  ### UCosIII 
- ##### 的是安富莱ucosiii的教程：http://forum.armfly.com/forum.php?mod=viewthread&tid=1788&extra=page%3D1
+ ##### 参考的是安富莱ucosiii的教程：http://forum.armfly.com/forum.php?mod=viewthread&tid=1788&extra=page%3D1
+
  调度器：使用相关算法来决定当前执行任务。 就绪任务和挂起任务 。激活一个就绪态的任务。
  合作式调度器：只有一个任务可以执行，不可被抢占。直到自愿放弃、
  抢占式调度器：激活就绪任务中优先级最大的一个（ucos是数值越低越高）
