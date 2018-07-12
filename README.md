@@ -423,7 +423,7 @@ GUIConf.c 动态内存配置 内外部和大小
  
 GUIConf.h 系统配置 图层 OS 触摸 鼠标 窗口管理器 存储 设备指针
 
-LCDConf_Lin_Template.c
+LCDConf_Lin_Template.c 重要，配置了显示尺寸和显示驱动，颜色转换和底层优化。
 
 
 
