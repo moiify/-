@@ -545,3 +545,16 @@ NVIC_SetVectorTable(NVIC_VectTab_FLASH, 0x2000);
 AN2557
 
 -  ### 以太网通信 
+
+MAC（链路）+PHY（物理）   PHY芯片是LAN8720   接口是RMII接口  7根线； 通过SMI 总线对PHY寄存器进行读写 可以控制32个芯片。
+
+通过设置RXER/PHYAD0 引脚来设置PHY地址，下拉默认为0。
+
+设置nINTSEL 引脚（2号引脚） 来设置nINT/REFCLKO 引脚（14引脚）。A=0  B作为时钟源。
+
+LWIP 协议栈使用 。能做WEB SERVER TCP SERVER TCP Client UDP..；
+
+1.带操作系统的移植
+
+① 下载源码+HAL库
+② 
