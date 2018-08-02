@@ -558,7 +558,7 @@ AN2557
 
 MAC（链路）+PHY（物理）   PHY芯片是LAN8720   接口是RMII接口  7根线； 通过SMI 总线对PHY寄存器进行读写 可以控制32个芯片。
 
-通过设置RXER/PHYAD0 引脚来设置PHY地址，下拉默认为0。
+通过设置RXER/PHYAD0 引脚来设置PHY地址，下拉默认为0。 通过xxxhal_config.h里修改
 
 设置nINTSEL 引脚（2号引脚） 来设置nINT/REFCLKO 引脚（14引脚）。A=0  B作为时钟源。
 
@@ -570,6 +570,32 @@ LWIP 协议栈使用 。能做WEB SERVER TCP SERVER TCP Client UDP..；
 ② .. 
 
 首先要驱动EHT外设，即驱动RMII接口的LAN8720，然后移植LWIP协议，最后通过接口进行编程。
+
+修改文件：
+
+- #### ethernetif.c 
+
+MSP初始化硬件接口，low_level_init 
+
+初始化MAC相关工作外环境,初始化DMA描述符链表，使能。
+
+low_level_output 是底层发送一帧数据函数 。low_level_input底层接收一帧数据函数。
+
+sys_now 获取当前时间。 ethernetif_init 初始化网络接口并调用 low_level_init 
+
+ethernet_input 调用low_level_input
+
+- #### app_ethernet.c 
+
+主要是实际的网络初始化应用程序所在的.c
+
+Netif_Config 是创建一个网络接口。
+
+User_notfication 是用来获得网络状态的函数
+
+- #### lan8720.c 和lan8720.h
+
+初始化相关I/O。
 
 
 嵌入式网络通信笔记。（阅读嵌入式网络那些事---LWIP协议深度剖析与实战演练）
