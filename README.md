@@ -579,7 +579,9 @@ MSP初始化硬件接口，low_level_init
 
 初始化MAC相关工作外环境,初始化DMA描述符链表，使能。
 
-low_level_output 是底层发送一帧数据函数 。low_level_input底层接收一帧数据函数。
+low_level_output 是底层发送一帧数据函数 。
+
+low_level_input底层接收一帧数据函数。
 
 sys_now 获取当前时间。 ethernetif_init 初始化网络接口并调用 low_level_init 
 
