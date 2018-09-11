@@ -645,4 +645,39 @@ DMA1没有外设端口没有连接至总线矩阵，只连接到了APB1外设，
 程序上电后，串口还没有接收到数据就进入了串口空闲中断。应该是配置问题、
 
 
- 
+
+-  ### STM32串口收发经验
+
+一定要对应着STM32参考手册来进行串口程序的编写，很多坑里面都有描述。
+
+采用消息队列的方式来进行数据的收发，更安全和高效。 暂未进行拆包和补包的处理。
+
+消息队列的简单C语言实现方式：
+
+''' C
+typedef struct
+{
+  unsigned int Buff[100];
+  unsigned int Len;
+}DataInfo;
+
+typedef struct
+{
+  DataInfo Databuf[20];
+  unsigned int In;
+  unsigned int Out;
+  unsigned int Count;
+  unsigned int Size;
+}Cache;
+
+DataInfo *p.
+p = &Cache.Databuf[Cache.In];
+
+
+'''
+
+
+
+
+
+
