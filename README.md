@@ -12,7 +12,7 @@ usmart_scan 两个参数 一个是串口数据 一个是串口接收状态
 
 list 打印所有函数
 
-id  获取入口地址
+id  获取入口地址 
 
 help  帮助信息
 
@@ -55,19 +55,19 @@ USART使用方式差不多，都是用异步模式进行收发。
 //取消ARM的半主机工作模式
 #pragma import(__use_no_semihosting)
 struct __FILE {
-    int handle;
+​    int handle;
 };
 
 FILE __stdout;
 _sys_exit(int x)
 {
-    x = x;
+​    x = x;
 }
 
 int fputc(int ch, FILE *f){
-    while((USART1->SR&0X40)==0);
-    USART1->DR = (u8) ch;
-    return ch;
+​    while((USART1->SR&0X40)==0);
+​    USART1->DR = (u8) ch;
+​    return ch;
 }
 
 关于使用HAL库开发F7中 使用 __HAL_UART_GET_FLAG（）函数卡死问题
@@ -212,8 +212,8 @@ char (*pa)[4];
 函数指针  传入函数地址
 int * p a[2](int x, int y)=
 {
-    main,
-    slave
+​    main,
+​    slave
 }
 
 a[1](1,2)
@@ -301,13 +301,13 @@ DC/DC 变换器、开关元件和整流器应尽可能靠近变压器放置，�
 
 
 注意点：1、在TF卡中写时不要直接在根目录下写文件，最好先建立一个文件夹，在文件夹里写，这样工作电流就会小很多，而且电流也很稳定（主要原因）
-        2、一个文件夹里的txt文件数目不能太多，否则单片机从掉电模式起来到写卡时有点慢，会造成前面的数据丢失（我的2G的卡里，每个文件夹里的文件不能超过50个，超过后唤醒单片机到写卡时间过长，造成一些数据丢失）
-        3、小容量卡写电流小，大容量卡写电流大（2G:40mA，4G:50mA，16G:100mA，）
-        4、写小的文件（写几秒就要关闭的）用f_sync(&file);写大文件（就是连续写n个小时）用f_close(&file);
+​        2、一个文件夹里的txt文件数目不能太多，否则单片机从掉电模式起来到写卡时有点慢，会造成前面的数据丢失（我的2G的卡里，每个文件夹里的文件不能超过50个，超过后唤醒单片机到写卡时间过长，造成一些数据丢失）
+​        3、小容量卡写电流小，大容量卡写电流大（2G:40mA，4G:50mA，16G:100mA，）
+​        4、写小的文件（写几秒就要关闭的）用f_sync(&file);写大文件（就是连续写n个小时）用f_close(&file);
 
 还在郁闷的问题：
 1、第一次单片机从掉电模式起来的比较慢（大概2秒），但从第二次后起来就非常快了
-    注：程序到while(1)前面就进入掉电模式了，每次从掉电模式起来就到while(1)里了，执行的语句都是一模一样的啊，怎么会这样呢
+​    注：程序到while(1)前面就进入掉电模式了，每次从掉电模式起来就到while(1)里了，执行的语句都是一模一样的啊，怎么会这样呢
 
 2、由于第一点的迷惑，我怀疑单片机从掉电模式起来后是不是从while(1)哪里执行呢？不是说：从哪里掉电，起来时就从那里执行的吗？？
 
@@ -315,22 +315,22 @@ DC/DC 变换器、开关元件和整流器应尽可能靠近变压器放置，�
    我的16G卡写电流摆动范围：50mA-100mA啊，天哪，手机里或别的电子产品里可不是这样啊，难道这是fatfs的原因，或是我写卡的逻辑不对？？？？？？？？？？？？？？？？？？？？
 
 这是我写卡的程序：SD_Write_Flag是定时器里的一个变量，如果SPI数据寄存器满了（AD给的数据），他就为1，定时器每个500us去看一次,
-         if(SD_Write_Flag)
-         {
-            SD_Write_Flag=0;
-            if(buffer_number)
-            {
-              res1 = f_write(&file, buffer1, 512, &br);     //写入
-              f_sync(&file);
-              IO0SET |=1<<15;         //P0.15输出高，关闭LED
-            }
-            else
-            {
-              res1 = f_write(&file, buffer0, 512, &br);     //写入
-              f_sync(&file);
-              IO0CLR |=(1<<15);      //P0.15输出低，点亮LED
-            }
-         }
+​         if(SD_Write_Flag)
+​         {
+​            SD_Write_Flag=0;
+​            if(buffer_number)
+​            {
+​              res1 = f_write(&file, buffer1, 512, &br);     //写入
+​              f_sync(&file);
+​              IO0SET |=1<<15;         //P0.15输出高，关闭LED
+​            }
+​            else
+​            {
+​              res1 = f_write(&file, buffer0, 512, &br);     //写入
+​              f_sync(&file);
+​              IO0CLR |=(1<<15);      //P0.15输出低，点亮LED
+​            }
+​         }
 
  -  ### UCosIII
  ##### 参考的是安富莱ucosiii的教程：http://forum.armfly.com/forum.php?mod=viewthread&tid=1788&extra=page%3D1
